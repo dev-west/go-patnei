@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/dev-west/patnei"
+	"github.com/dev-west/go-patnei"
 )
 
 func main() {
