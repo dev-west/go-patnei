@@ -5,7 +5,7 @@ import (
 )
 
 type ExObj struct {
-	s string
+	S string
 }
 
 var eEmpty = &ExObj{ }
@@ -15,17 +15,18 @@ func NewObj() *ExObj {
 }
 
 func (x *ExObj) Add(c string) (*ExObj, error) {
-	if len(x.s) != 0 { return eEmpty, errors.New("Add will lose data: %s", x.s) }
+	eStr := "Add will lose data: " + x.S
+	if len(x.S) != 0 { return eEmpty, errors.New(eStr) }
 
-	x.s = c
+	x.S = c
 
-	return x
+	return x, nil
 }
 
 func (x *ExObj) Append(c string) (*ExObj, error) {
-	if len(x.s) == 0 { return eEmpty, errors.New("Append to empty ExObj") }
-	x.s = x.s + c
+	if len(x.S) == 0 { return eEmpty, errors.New("Append to empty ExObj") }
+	x.S = x.S + c
 
-	return x
+	return x, nil
 }
 
